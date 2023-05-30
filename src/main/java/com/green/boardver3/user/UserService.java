@@ -1,6 +1,8 @@
 package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.UserInsDto;
+import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserLoginVo;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,34 @@ public class UserService {
         this.commonUtils=commonUtils;
     }
 
-    public int insBoard(UserInsDto dto){
+    public int insBoard(UserInsDto dto) {
+        //성별 대문자 변경
+        char gender = Character.toUpperCase(dto.getGender());
+        dto.setGender(gender);
+        if (!(gender == 'M' || gender == 'F')) {
+            return -1;
+        }
         //비밀번호 암호화
-      String hashPw= commonUtils.encodeSha256(dto.getUpw());
-      dto.setUpw(hashPw);
-        return mapper.insBoard(dto);
+        String hashPw = commonUtils.encodeSha256(dto.getUpw());
+        dto.setUpw(hashPw);
+        try {
+            return mapper.insBoard(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
+    public int login(UserLoginDto dto) {
 
+        UserLoginVo vo = mapper.selUserByUid(dto);
+        if(vo==null){
+            return 2;
+        }
+        String pwe = commonUtils.encodeSha256(dto.getUpw());
+        if(vo.getUpw().equals(pwe)){
+            return 1;
+        }
+            return 3;
+    }
 }
