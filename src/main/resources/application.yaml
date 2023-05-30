@@ -12,7 +12,7 @@ spring:
     password: green502
 
 mybatis:
-  type-aliases-package: com.green.boardver3 #????? ??? ???
+  type-aliases-package: com.green.boardver3 #설정해주지 않으면 풀네임
   mapper-locations: mapper/**/*.xml
 
 springdoc:
