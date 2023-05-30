@@ -2,6 +2,7 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.UserInsDto;
 import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserPatchPwDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +37,11 @@ public class UserController {
     "(3)비밀번호 다름")
     public int postLoginUser(@RequestBody UserLoginDto dto){
         return service.login(dto);
+    }
+
+
+    @PatchMapping("/pw")
+    public int patchUser(@RequestBody UserPatchPwDto dto){
+        return service.updUserPw(dto);
     }
 }

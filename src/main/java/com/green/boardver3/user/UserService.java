@@ -3,6 +3,7 @@ package com.green.boardver3.user;
 import com.green.boardver3.user.model.UserInsDto;
 import com.green.boardver3.user.model.UserLoginDto;
 import com.green.boardver3.user.model.UserLoginVo;
+import com.green.boardver3.user.model.UserPatchPwDto;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,11 @@ public class UserService {
             return 1;
         }
             return 3;
+    }
+
+   public int updUserPw(UserPatchPwDto dto){
+        String hashedPw=commonUtils.encodeSha256(dto.getUpw());
+        dto.setUpw(hashedPw);
+        return mapper.updUserPw(dto);
     }
 }
