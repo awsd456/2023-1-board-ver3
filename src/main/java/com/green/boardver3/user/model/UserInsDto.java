@@ -1,4 +1,4 @@
-package com.green.boardver3.model;
+package com.green.boardver3.user.model;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ public class UserInsDto {
    private String uid;
    private String upw;
    private String nm;
-   private String gender;
+   private char gender;
    private String addr;
 
 }

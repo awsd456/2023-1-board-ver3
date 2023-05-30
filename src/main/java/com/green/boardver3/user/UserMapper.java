@@ -1,7 +1,6 @@
-package com.green.boardver3;
+package com.green.boardver3.user;
 
-import com.green.boardver3.model.UserDto;
-import com.green.boardver3.model.UserInsDto;
+import com.green.boardver3.user.model.UserInsDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

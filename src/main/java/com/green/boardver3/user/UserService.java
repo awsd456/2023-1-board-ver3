@@ -1,7 +1,6 @@
-package com.green.boardver3;
+package com.green.boardver3.user;
 
-import com.green.boardver3.model.UserDto;
-import com.green.boardver3.model.UserInsDto;
+import com.green.boardver3.user.model.UserInsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,9 @@ public class UserService {
     }
 
     public int insBoard(UserInsDto dto){
+        //비밀번호 암호화
         return mapper.insBoard(dto);
     }
+
+
 }
