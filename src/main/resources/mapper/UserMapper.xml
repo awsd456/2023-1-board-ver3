@@ -9,5 +9,4 @@
         VALUES
         (#{uid},#{upw},#{nm},#{gender},#{addr})
     </insert>
-
 </mapper>
