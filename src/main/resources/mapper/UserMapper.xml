@@ -16,11 +16,11 @@
         where uid=#{uid}
     </select>
 
-    <update id="updUserPw" parameterType="UserPatchPwDto">
-        update t_user
-        set upw=#{upw}
-        where iuser=#{iuser}
-    </update>
+     <update id="updUserPw"  parameterType="UserPatchPwDto">
+         update t_user
+         set upw=#{upw}
+         where iuser=#{iuser}
+     </update>
 
 
 </mapper>

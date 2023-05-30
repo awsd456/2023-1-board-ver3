@@ -50,9 +50,12 @@ public class UserService {
             return 3;
     }
 
-   public int updUserPw(UserPatchPwDto dto){
-        String hashedPw=commonUtils.encodeSha256(dto.getUpw());
-        dto.setUpw(hashedPw);
-        return mapper.updUserPw(dto);
-    }
+  public int updUserPw(UserPatchPwDto dto){
+
+      String hashedPw=commonUtils.encodeSha256(dto.getUpw());
+      dto.setUpw(hashedPw);
+      return mapper.updUserPw(dto);
+  }
+
+
 }
