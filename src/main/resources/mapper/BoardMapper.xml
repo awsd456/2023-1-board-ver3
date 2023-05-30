@@ -11,7 +11,7 @@
     values
     (#{title},#{ctnt},#{iuser})
 </insert>
-<select id="selBoard" resultType="BoardDto">
+<select id="selBoard" resultType="BoardVo">
     select iboard,title,ctnt,iuser,created_at,updated_at from t_board
     limit ${stardIdx},${lowRen}
 </select>

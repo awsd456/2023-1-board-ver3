@@ -3,6 +3,7 @@ package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardInsDto;
+import com.green.boardver3.board.model.BoardVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class BoardController {
     }
 
     @GetMapping
-    List<BoardDto> getBoard(@RequestParam int page,@RequestParam int row){
+    List<BoardVo> getBoard(@RequestParam int page, @RequestParam int row){
         BoardDto dto=new BoardDto();
         dto.setPage(page);
         dto.setLowRen(row);

@@ -3,6 +3,7 @@ package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardInsDto;
+import com.green.boardver3.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class BoardService {
         return mapper.insBoard(dto);
     }
 
-    public List<BoardDto> selBoard(BoardDto dto){
+    public List<BoardVo> selBoard(BoardDto dto){
     int stardIdx=(dto.getPage()-1)*dto.getLowRen();
     dto.setStardIdx(stardIdx);
         return mapper.selBoard(dto);
