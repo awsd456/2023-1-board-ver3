@@ -1,10 +1,7 @@
 package com.green.boardver3.board;
 
 
-import com.green.boardver3.board.model.BoardDetailDto;
-import com.green.boardver3.board.model.BoardSelDto;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
@@ -46,10 +43,10 @@ public class BoardController {
     "iuser:[20]회원번호<br>"+
     "createdAt:게시판 생성일자<br>")
     List<BoardVo> getBoard(@RequestParam @Min(value=1, message="page값은 1이상이어야 합니다")  int page, @RequestParam(defaultValue = "30") int row){
-        BoardSelDto dto=BoardSelDto.builder()
-       .page(page)
-       .row(row)
-       .build();
+        BoardSelDto dto= new BoardSelDto();
+       dto.setPage(page);
+       dto.setRow(row);
+
         return service.selBoard(dto);
     }
     @GetMapping("/maxpage")
@@ -59,10 +56,10 @@ public class BoardController {
 
 
     @GetMapping("/{iboard}")
-    public BoardDetailDto DetailBoard (@PathVariable int iboard) {
-        BoardDetailDto aa= new BoardDetailDto();
-        aa.setIboard(iboard);
-        return service.selBoardDetail(aa);
+    public BoardDetailVo getBoardDetail(@PathVariable int iboard) {
+        BoardSelDto dto= new BoardSelDto();
+        dto.setIboard(iboard);
+        return service.selBoardDetail(dto);
     }
 
 

@@ -28,8 +28,9 @@
 </select>
 
 <select id="selBoardDetail" resultType="BoardDetailVo">
-    SELECT A.iboard, A.title, A.ctnt, B.uid, B.nm, B.main_pic mainPic, A.created_at createdAt, A.updated_at updatedAt
-    FROM t_board A
+    select A.iboard,A.ctnt,A.title,A.created_at createdAt,B.nm writer
+    ,B.main_pic writerMainPic
+    from t_board A
     INNER JOIN t_user B
     ON A.iuser = B.iuser
     WHERE iboard = #{iboard}
