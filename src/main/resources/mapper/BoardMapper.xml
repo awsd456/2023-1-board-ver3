@@ -13,7 +13,7 @@
 </insert>
 
 <select id="selBoard" resultType="BoardVo">
-    select A.iboard,A.title,A.ctnt,A.created_at createdAt,B.nm writer
+    select A.iboard,A.title,A.created_at createdAt,B.nm writer
     ,B.main_pic writerMainPic
     from t_board A
     inner join t_user B
@@ -27,5 +27,10 @@
     from t_board
 </select>
 
+<select id="selBoardDetail" resultType="BoardDetail">
+    select iboard,title,ctnt,iuser,created_at createdAt,updated_at updatedAt
+    from t_board
+    where iboard=#{iboard}
+</select>
 
 </mapper>
