@@ -9,8 +9,8 @@ public class BoardEntity extends BoardInsDto{
     private String title;
     private String ctnt;
     private int iuser;
-    private String created_at;
-    private String updated_at;
+    private String createdAt;
+    private String updatedAt;
 
 
 }

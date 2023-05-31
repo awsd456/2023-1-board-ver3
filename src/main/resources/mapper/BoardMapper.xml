@@ -11,9 +11,14 @@
     values
     (#{title},#{ctnt},#{iuser})
 </insert>
+
 <select id="selBoard" resultType="BoardVo">
-    select iboard,title,ctnt,iuser,created_at,updated_at from t_board
-    limit ${stardIdx},${lowRen}
+    select A.iboard,A.title,A.ctnt,A.created_at createdAt
+    from t_board A
+    inner join t_user B
+    on A.iuser=B.iuser
+    order by iboard desc
+    limit ${startIdx},${row}
 </select>
 
 

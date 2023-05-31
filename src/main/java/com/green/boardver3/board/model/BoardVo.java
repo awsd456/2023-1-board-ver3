@@ -1,14 +1,16 @@
 package com.green.boardver3.board.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
+@AllArgsConstructor
 public class BoardVo {
 
     private int iboard;
     private String title;
     private String ctnt;
-    private int iuser;
-    private String created_at;
-    private String updated_at;
+    private String createdAt;
+
 }
