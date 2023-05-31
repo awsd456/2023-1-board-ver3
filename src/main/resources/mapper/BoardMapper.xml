@@ -28,12 +28,17 @@
 </select>
 
 <select id="selBoardDetail" resultType="BoardDetailVo">
-    select A.iboard,A.ctnt,A.title,A.created_at createdAt,B.nm writer
-    ,B.main_pic writerMainPic
+    select A.iboard,A.title,A.ctnt,B.nm writer,B.main_pic mainPic,A.created_at createdAt
     from t_board A
     INNER JOIN t_user B
     ON A.iuser = B.iuser
     WHERE iboard = #{iboard}
 </select>
+
+<delete id="delBoard" parameterType="BoardDelDto">
+    delete from t_board
+    where iboard=#{iboard} and iuser=#{iuser}
+</delete>
+
 
 </mapper>

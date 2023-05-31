@@ -11,7 +11,6 @@ public class BoardDetailVo {
     private String title;
     private String ctnt;
     private String writer;
-    private String writerMainPic;
+    private String mainPic;
     private String createdAt;
-
 }
