@@ -1,7 +1,7 @@
 package com.green.boardver3.board;
 
 
-import com.green.boardver3.board.model.BoardDetail;
+import com.green.boardver3.board.model.BoardDetailDto;
 import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -36,7 +36,7 @@ public class BoardService {
         return (int)(Math.ceil((double)count/row));
     }
 
-    public BoardDetail selBoardDetail(BoardDetail detail){
-        return mapper.selBoardDetail(detail);
+    public BoardDetailDto selBoardDetail(BoardDetailDto dto){
+        return mapper.selBoardDetail(dto);
     }
 }

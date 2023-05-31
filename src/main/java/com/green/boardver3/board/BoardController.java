@@ -1,14 +1,13 @@
 package com.green.boardver3.board;
 
 
-import com.green.boardver3.board.model.BoardDetail;
+import com.green.boardver3.board.model.BoardDetailDto;
 import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -59,8 +58,8 @@ public class BoardController {
     }
 
     @GetMapping("/{iboard}")
-    public BoardDetail DetailBoard (@PathVariable int iboard) {
-        BoardDetail aa= new BoardDetail();
+    public BoardDetailDto DetailBoard (@PathVariable int iboard) {
+        BoardDetailDto aa= new BoardDetailDto();
         aa.setIboard(iboard);
         return service.selBoardDetail(aa);
     }
