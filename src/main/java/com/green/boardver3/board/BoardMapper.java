@@ -9,9 +9,10 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
 
-    int insBoard(BoardInsDto dto);
+    int insBoard(BoardEntity dto);
     List<BoardVo> selBoard(BoardSelDto dto);
     int selBoardRowCountMaxPage(int row);
     BoardDetailVo selBoardDetail(BoardSelDto dto);
     int delBoard(BoardDelDto dto);
+    int updBoard(BoardUpdDto dto);
 }

@@ -18,7 +18,15 @@ public class BoardService {
     }
 
     public int insBoard(BoardInsDto dto){
-        return mapper.insBoard(dto);
+        BoardEntity entity=new BoardEntity();
+        entity.setTitle(dto.getTitle());
+        entity.setCtnt(dto.getCtnt());
+        entity.setIuser(dto.getIuser());
+        int result=mapper.insBoard(entity);
+        if(result==1){
+            return entity.getIboard();
+        }
+        return result;
     }
 
     public List<BoardVo> selBoard(BoardSelDto dto){
@@ -28,7 +36,7 @@ public class BoardService {
     }
 
 
-    public int selBoardRowCountMaxPage(int row){
+    public int selBoardRowCountMaxPage(int row){        //최대 페이지수
         int count=mapper.selBoardRowCountMaxPage(row);
         return (int)(Math.ceil((double)count/row));
     }
@@ -39,5 +47,9 @@ public class BoardService {
 
     public int delBoard(BoardDelDto dto){
         return mapper.delBoard(dto);
+    }
+
+    public int updBoard(BoardUpdDto dto){
+        return mapper.updBoard(dto);
     }
 }

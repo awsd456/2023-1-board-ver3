@@ -5,7 +5,7 @@
 <mapper namespace="com.green.boardver3.board.BoardMapper">
 
 
-<insert id="insBoard" parameterType="BoardInsDto">
+<insert id="insBoard"  useGeneratedKeys="true" keyProperty="iboard">
     insert into t_board
     (title,ctnt,iuser)
     values
@@ -39,6 +39,12 @@
     delete from t_board
     where iboard=#{iboard} and iuser=#{iuser}
 </delete>
+
+<update id="updBoard" parameterType="BoardUpdDto">
+    update t_board
+    set title=#{title},ctnt=#{ctnt},updated_at=now()
+    where iboard=#{iboard} and iuser=#{iuser}
+</update>
 
 
 </mapper>
