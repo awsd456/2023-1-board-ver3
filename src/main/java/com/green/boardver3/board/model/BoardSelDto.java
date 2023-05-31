@@ -10,4 +10,6 @@ public class BoardSelDto {
     private int startIdx;
     private int page;
     private int row;
+
+
 }

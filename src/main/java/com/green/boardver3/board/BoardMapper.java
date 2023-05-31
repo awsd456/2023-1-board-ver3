@@ -13,4 +13,5 @@ public interface BoardMapper {
 
     int insBoard(BoardInsDto dto);
     List<BoardVo> selBoard(BoardSelDto dto);
+    int selBoardRowCountMaxPage(int row);
 }
