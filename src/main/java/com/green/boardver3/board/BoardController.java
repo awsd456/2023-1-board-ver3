@@ -1,6 +1,7 @@
 package com.green.boardver3.board;
 
 
+import com.green.boardver3.board.model.BoardDetail;
 import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -55,6 +56,13 @@ public class BoardController {
     @GetMapping("/maxpage")
     public int getBoardMaxPage(@RequestParam int row){
         return service.selBoardRowCountMaxPage(row);
+    }
+
+    @GetMapping("/{iboard}")
+    public BoardDetail DetailBoard (@PathVariable int iboard) {
+        BoardDetail aa= new BoardDetail();
+        aa.setIboard(iboard);
+        return service.selBoardDetail(aa);
     }
 
 

@@ -2,12 +2,25 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.green.boardver3.UserMapper">
-    <insert id="insBoard">
+<mapper namespace="com.green.boardver3.user.UserMapper">
+
+    <insert id="insBoard" parameterType="UserInsDto">
         INSERT INTO t_user
         (uid,upw,nm,gender,addr)
         VALUES
         (#{uid},#{upw},#{nm},#{gender},#{addr})
     </insert>
+
+    <select id="selUserByUid" resultType="UserLoginVo">
+        select iuser,uid,upw,nm,gender,addr,main_pic mainPic from t_user
+        where uid=#{uid}
+    </select>
+
+    <update id="updUserPw" parameterType="UserPatchPwDto">
+        update t_user
+        set upw=#{upw}
+        where iuser=#{iuser}
+    </update>
+
 
 </mapper>
