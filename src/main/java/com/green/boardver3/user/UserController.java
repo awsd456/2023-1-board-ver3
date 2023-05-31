@@ -41,6 +41,9 @@ public class UserController {
 
 
     @PatchMapping("/pw")
+    @Operation(summary = "비밀번호 변경",description = ""+
+    "iuser:[20]유저 번호<br>"+
+    "upw:[100]유저 비밀번호<br>")
     public int patchUser(@RequestBody UserPatchPwDto dto){
         return service.updUserPw(dto);
     }
