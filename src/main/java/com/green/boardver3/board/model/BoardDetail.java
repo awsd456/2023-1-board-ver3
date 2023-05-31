@@ -8,7 +8,10 @@ public class BoardDetail {
     private int iboard;
     private String title;
     private String ctnt;
+    private String writer;
     private String iuser;
     private String createdAt;
     private String updatedAt;
+    private String mainPic;
+
 }

@@ -58,6 +58,7 @@ public class BoardController {
         return service.selBoardRowCountMaxPage(row);
     }
 
+
     @GetMapping("/{iboard}")
     public BoardDetail DetailBoard (@PathVariable int iboard) {
         BoardDetail aa= new BoardDetail();
