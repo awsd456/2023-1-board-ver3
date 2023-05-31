@@ -28,4 +28,10 @@ public class BoardService {
     dto.setStartIdx(startIdx);
     return mapper.selBoard(dto);
     }
+
+
+    public int selBoardRowCountMaxPage(int row){
+        int count=mapper.selBoardRowCountMaxPage(row);
+        return (int)(Math.ceil((double)count/row));
+    }
 }

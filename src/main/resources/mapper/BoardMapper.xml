@@ -13,7 +13,8 @@
 </insert>
 
 <select id="selBoard" resultType="BoardVo">
-    select A.iboard,A.title,A.ctnt,A.created_at createdAt
+    select A.iboard,A.title,A.ctnt,A.created_at createdAt,B.nm writer
+    ,B.main_pic writerMainPic
     from t_board A
     inner join t_user B
     on A.iuser=B.iuser
@@ -21,6 +22,10 @@
     limit ${startIdx},${row}
 </select>
 
+<select id="selBoardRowCountMaxPage" resultType="int">
+    select count(iboard)
+    from t_board
+</select>
 
 
 </mapper>

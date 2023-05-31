@@ -44,8 +44,7 @@ public class BoardController {
     "title:[50]제목<br>"+
     "ctnt:[text]내용<br>"+
     "iuser:[20]회원번호<br>"+
-    "createdAt:게시판 생성일자<br>"+
-    "updatedAt:게시판 수정일자<br>")
+    "createdAt:게시판 생성일자<br>")
     List<BoardVo> getBoard(@RequestParam @Min(value=1, message="page값은 1이상이어야 합니다")  int page, @RequestParam(defaultValue = "30") int row){
         BoardSelDto dto=BoardSelDto.builder()
        .page(page)
@@ -53,7 +52,10 @@ public class BoardController {
        .build();
         return service.selBoard(dto);
     }
-
+    @GetMapping("/maxpage")
+    public int getBoardMaxPage(@RequestParam int row){
+        return service.selBoardRowCountMaxPage(row);
+    }
 
 
 }
