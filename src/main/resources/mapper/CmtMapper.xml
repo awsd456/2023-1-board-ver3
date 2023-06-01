@@ -11,4 +11,30 @@
     (#{iboard},#{iuser},#{ctnt})
 </insert>
 
+<select id="selBoardCmt" resultType="Cmtvo">
+    select  A.iboard_cmt iboardCmt ,A.iboard ,A.iuser ,A.ctnt ,B.nm writer ,B.main_pic writerMainPic,
+    A.created_at createdAt
+    from t_board_cmt A
+    inner join t_user B
+    on A.iuser=B.iuser
+    where A.iboard=#{iboard}
+    limit #{startIdx},#{lowRen}
+</select>
+
+<delete id="delBoardCmt" parameterType="CmtDelDto">
+    delete from t_board_cmt
+    where iboard_cmt=#{iboardCmt} and iuser=#{iuser}
+</delete>
+
+<update id="updBoardCmt" parameterType="CmtEntity">
+    update t_board_cmt
+    set ctnt=#{ctnt},updated_at=now()
+    where iboard_cmt=#{iboardCmt} and iuser=#{iuser}
+</update>
+
+<select id="selBoardCmtRowCountByIBoard">
+    SELECT count(iboard_cmt) FROM t_board_cmt
+    WHERE iboard = #{iboard}
+</select>
+
 </mapper>

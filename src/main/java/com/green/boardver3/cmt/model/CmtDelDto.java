@@ -3,10 +3,8 @@ package com.green.boardver3.cmt.model;
 import lombok.Data;
 
 @Data
-public class CmtInsDto {
+public class CmtDelDto {
 
-
+    private int iboardCmt;
     private int iuser;
-    private String ctnt;
-
 }
