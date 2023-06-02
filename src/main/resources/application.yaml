@@ -7,9 +7,10 @@ spring:
     static-path-pattern: /static/**
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.0.144:3306/team_f
+
     username: team_f
     password: green502
+    jdbc-url: jdbc:mariadb://192.168.0.144:3306/team_f
 
 mybatis:
   type-aliases-package: com.green.boardver3 #설정해주지 않으면 풀네임
@@ -21,4 +22,4 @@ springdoc:
 
 
 file:
-  dir: D:/download/
+  dir: D:/download/board3

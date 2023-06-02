@@ -58,4 +58,6 @@ public class CmtController {
         entity.setCtnt(dto.getCtnt());
         return service.updBoardCmt(entity);
     }
+
+
 }

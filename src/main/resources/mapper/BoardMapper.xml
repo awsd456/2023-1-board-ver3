@@ -35,7 +35,7 @@
     WHERE iboard = #{iboard}
 </select>
 
-<delete id="delBoard" parameterType="BoardDelDto">
+<delete id="delBoard" >
     delete from t_board
     where iboard=#{iboard} and iuser=#{iuser}
 </delete>

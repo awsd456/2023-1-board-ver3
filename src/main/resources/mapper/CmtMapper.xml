@@ -21,10 +21,18 @@
     limit #{startIdx},#{lowRen}
 </select>
 
-<delete id="delBoardCmt" parameterType="CmtDelDto">
+
+<delete id="delBoardCmt" >
     delete from t_board_cmt
-    where iboard_cmt=#{iboardCmt} and iuser=#{iuser}
+    where
+    <if test="iboardCmt>0 and iuser>0">
+    iboard_cmt=#{iboardCmt} and iuser=#{iuser}
+    </if>
+    <if test="iboard>0">
+        iboard=#{iboard}
+    </if>
 </delete>
+
 
 <update id="updBoardCmt" parameterType="CmtEntity">
     update t_board_cmt
@@ -36,5 +44,9 @@
     SELECT count(iboard_cmt) FROM t_board_cmt
     WHERE iboard = #{iboard}
 </select>
+
+
+
+
 
 </mapper>

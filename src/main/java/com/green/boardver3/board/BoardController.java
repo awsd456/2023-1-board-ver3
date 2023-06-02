@@ -56,18 +56,16 @@ public class BoardController {
 
 
     @GetMapping("/{iboard}")
-    public BoardDetailVo getBoardDetail(@PathVariable int iboard) {
-        BoardSelDto dto= new BoardSelDto();
+    public BoardDetailCmtVo getBoardDetail(@PathVariable int iboard) {
+        BoardSelDto dto = new BoardSelDto();
         dto.setIboard(iboard);
         return service.selBoardDetail(dto);
     }
 
     @DeleteMapping
-    public int delBoard(@RequestParam int iboard,@RequestParam int iuser){
-        BoardDelDto dto=new BoardDelDto();
-        dto.setIboard(iboard);
-        dto.setIuser(iuser);
+    public int delBoard(@RequestBody BoardDelDto dto) throws Exception {
         return service.delBoard(dto);
+
     }
 
     @PutMapping

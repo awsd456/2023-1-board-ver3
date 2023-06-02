@@ -7,4 +7,6 @@ public class CmtDelDto {
 
     private int iboardCmt;
     private int iuser;
+    private int iboard;
+
 }

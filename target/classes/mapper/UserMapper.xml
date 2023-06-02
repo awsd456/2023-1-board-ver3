@@ -22,5 +22,12 @@
          where iuser=#{iuser}
      </update>
 
+    <update id="updUserPic">
+        update t_user
+        set main_pic=#{mainPic}
+        where iuser=#{iuser}
+    </update>
+
+
 
 </mapper>
